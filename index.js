@@ -11,6 +11,15 @@ function saveToLocalStorage(event){
     localStorage.setItem('password',password);
     localStorage.setItem('birthdate',birthdate);
     localStorage.setItem('gender',gender);
-     
+
+    const obj = {
+      fullname,
+      email,
+      password,
+      birthdate,
+      gender
+   }
+   localStorage.setItem('userdetails',JSON.stringify(obj));
+
 
 }
