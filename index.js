@@ -26,6 +26,17 @@ function saveToLocalStorage(event){
  function showUserOnScreen(obj){
     const parentElem = document.getElementById('listOfItems')
 
-    parentElem.innerHTML = `<li>${obj.name} - ${obj.email} - ${obj.password} - ${obj.birthdate} - ${obj.gender}</li>`  
+    const childElem = document.createElement('li')
+   childElem.textContent = obj.name + '-' + obj.email + '-' + obj.password + '-' + obj.birthdate + '-' + obj.gender 
+
+   const deleteButton = document.createElement('input')    
+   deleteButton.type = "button"
+   deleteButton.value = 'Delete'
+   deleteButton.onclick = () => {
+      localStorage.removeItem(obj.email)
+      parentElem.removeChild(childElem)
+   }
+   childElem.appendChild(deleteButton)
+   parentElem.appendChild(childElem)
        
    }
