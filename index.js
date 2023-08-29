@@ -36,7 +36,23 @@ function saveToLocalStorage(event){
       localStorage.removeItem(obj.email)
       parentElem.removeChild(childElem)
    }
+
+   const editButton = document.createElement('input')
+   editButton.type = "button"
+   editButton.value = 'Edit'
+    editButton.onClick = () => {
+      localStorage.removeItem(obj.email)
+      parentElem.removeChild(childElem)
+   document.getElementById('fullname').value = obj.name
+   document.getElementById('email').value = obj.email
+   document.getElementById('password').value = obj.password
+   document.getElementById('birthdate').value = obj.birthdate
+   document.getElementById('gender').value = obj.gender
+    
+   }  
+      
    childElem.appendChild(deleteButton)
+   childElem.appendChild(editButton)
    parentElem.appendChild(childElem)
        
    }
